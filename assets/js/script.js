@@ -10,6 +10,7 @@ const answer3 = document.getElementById('Answer3');
 const endContainer = document.querySelector('.end-container');
 const submitBtn = document.querySelector(".submitBtn");
 const initialsBox = document.getElementById('initials-box')
+const finalScore = document.getElementById('final-score')
 let info = []
 let globalIndex = 0;
 let score = 0;
@@ -69,7 +70,6 @@ function selectAnswer(selectedAnswer) {
         score += 5;
     } else {
         console.log('Wrong')
-        // allAnswerButtons.style.backgroundColor = 'red';
     }
     globalIndex++;
     console.log(globalIndex);
