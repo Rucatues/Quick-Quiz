@@ -2,11 +2,15 @@ const startButton = document.getElementById('start-btn');
 const nextButton = document.getElementById('next-btn');
 const questionContainer = document.getElementById('question-container');
 const answerButtons = document.getElementById('answer-buttons');
+const allAnswerButtons = document.querySelector('.btn')
 const text = document.getElementById('question-text');
 const answer1 = document.getElementById('Answer1');
 const answer2 = document.getElementById('Answer2');
 const answer3 = document.getElementById('Answer3');
 const endContainer = document.querySelector('.end-container');
+const submitBtn = document.querySelector(".submitBtn");
+const initialsBox = document.getElementById('initials-box')
+let info = []
 let globalIndex = 0;
 let score = 0;
 
@@ -25,7 +29,7 @@ const questions = [
     {
         questionText: "When considering CSS Specificity, which one of the following is most specific?",
         choices: ["class", "ID", "element"],
-        correctAnswer: "background-color"
+        correctAnswer: "ID"
     }
 ]
 
@@ -65,6 +69,7 @@ function selectAnswer(selectedAnswer) {
         score += 5;
     } else {
         console.log('Wrong')
+        // allAnswerButtons.style.backgroundColor = 'red';
     }
     globalIndex++;
     console.log(globalIndex);
@@ -72,7 +77,6 @@ function selectAnswer(selectedAnswer) {
         nextButton.classList.remove('hide');
         nextButton.addEventListener('click', (event) => {
             event.preventDefault();
-            // console.log(event);
             if (globalIndex < questions.length) {
                 giveFirstQuestion(globalIndex);
             } else {
@@ -89,3 +93,7 @@ function gameOver() {
     endContainer.classList.remove('hide');
     console.log(score)
 }
+
+
+
+// Submit initials and score to local storage//
