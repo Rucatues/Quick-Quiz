@@ -20,8 +20,9 @@ body{
     box-shadow: 0 0 18px 5px var(--box-shadow-color); 
 }
 
-#question{
+#question-text{
     text-align: center; 
+    font-size: 20px; 
 }
 .btn-grid{
     display: grid;
@@ -49,3 +50,8 @@ body{
     padding: 10px 20px; 
     margin: 10px; 
 }
+
+.hide{
+    display:none; 
+} 
+
