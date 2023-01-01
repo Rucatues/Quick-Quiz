@@ -19,7 +19,12 @@ const questions = [
     },
     {
         questionText: "What is the CSS property to change the background color of an element?",
-        choices: ["background-color", "bckgroundcolor", "colorofbackground", "bgcolor"],
+        choices: ["background-color", "bckgroundcolor", "colorofbackground"],
+        correctAnswer: "background-color"
+    },
+    {
+        questionText: "When considering CSS Specificity, which one of the following is most specific?",
+        choices: ["class", "ID", "element"],
         correctAnswer: "background-color"
     }
 ]

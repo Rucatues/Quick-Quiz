@@ -20,7 +20,7 @@ body{
     box-shadow: 0 0 18px 5px var(--box-shadow-color); 
 }
 
-#question-text{
+#question-text, .end-container{
     text-align: center; 
     font-size: 20px; 
 }
@@ -55,3 +55,15 @@ body{
     display:none; 
 } 
 
+#initialsbox{
+    width: 50px; 
+    border:1px solid rgb(177, 229, 177); 
+}
+
+input{
+    text-align: center; 
+}
+
+.submitBtn{
+    margin-top: 10px; 
+}
