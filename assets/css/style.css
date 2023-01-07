@@ -13,14 +13,19 @@ body{
 
 .container {
     width: 800px; 
+    height: 300px; 
     max-width: 80%;
     background-color: white; 
     border-radius: 8px; 
     padding: 15px; 
     --box-shadow-color: rgb(195, 195, 240); /*declaring a box shadow variable */
     box-shadow: 0 0 18px 5px var(--box-shadow-color); 
+    box-sizing: border-box; 
 }
 
+#question-container{
+    margin-top: 50px; 
+}
 #question-text, .end-container{
     text-align: center; 
     font-size: 20px; 
@@ -37,9 +42,10 @@ body{
     border: none; 
 }
 
-.btn:hover{
-    background-color: rgb(195, 195, 240); 
+.btn:focus, .btn:hover{
+    background-color: rgb(195, 195, 240)
 }
+
 
 .controls{
     display: flex; 
@@ -56,23 +62,33 @@ body{
     display:none; 
 } 
 
-#initialsbox{
+#initialsbox {
     width: 50px; 
     border:1px solid rgb(177, 229, 177); 
 }
 
-input{
+input { 
     text-align: center; 
 }
 
-.submitBtn{
+.submitBtn {
     margin-top: 10px; 
 }
 
-.time-left{
+.time-left {
     position: fixed;
     top: 20px; 
     padding: 30px 0; 
     text-align: center; 
     font-size: 20px; 
 }
+
+.disabled {
+    pointer-events: none; 
+    color: rgb(169, 168, 168); 
+}
+
+.chosenAnswer {
+    color: black; 
+}
+

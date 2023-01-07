@@ -1,3 +1,4 @@
+const container = document.querySelector('.container');
 const questionContainer = document.getElementById('question-container'); //container for questions and answers
 const startButton = document.getElementById('start-btn'); //this button starts quiz
 const nextButton = document.getElementById('next-btn'); //this button clicks to next question
@@ -14,7 +15,7 @@ const finalScore = document.getElementById('final-score') //targets the final sc
 const highScore = document.querySelector('.high-score')
 const recentScores = document.getElementById('recent-scores');
 const time = document.querySelector('.time-left');
-var secondsLeft = 20;
+var secondsLeft = 60;
 let info = []
 let score = 0;
 
@@ -69,28 +70,45 @@ function startGame() {
 
 
 function giveFirstQuestion(globalIndex) {
-    text.innerText = questions[globalIndex]?.questionText;
-    answer1.innerHTML = questions[globalIndex]?.choices[0];
-    answer2.innerHTML = questions[globalIndex]?.choices[1];
-    answer3.innerHTML = questions[globalIndex]?.choices[2]
-    answer1.addEventListener('click', (event) => {
+    text.innerText = questions[globalIndex].questionText;
+    answer1.innerHTML = questions[globalIndex].choices[0];
+    answer2.innerHTML = questions[globalIndex].choices[1];
+    answer3.innerHTML = questions[globalIndex].choices[2]
 
+    answer1.addEventListener('click', (event) => {
+        answer1.classList.add('chosenAnswer');
         selectAnswer(answer1.innerText, globalIndex);
+        answer1.classList.add('disabled');
+        answer2.classList.add('disabled');
+        answer3.classList.add('disabled');
     });
     answer2.addEventListener('click', (event) => {
-
+        answer2.classList.add('chosenAnswer');
         selectAnswer(answer2.innerText, globalIndex);
+        answer1.classList.add('disabled');
+        answer2.classList.add('disabled');
+        answer3.classList.add('disabled');
     });
     answer3.addEventListener('click', (event) => {
+        answer3.classList.add('chosenAnswer');
 
         selectAnswer(answer3.innerText, globalIndex);
+        answer1.classList.add('disabled');
+        answer2.classList.add('disabled');
+        answer3.classList.add('disabled');
     });
 
 }
 
+// function disabled() {
+//     if (answer1.classList.contains('disabled')) {
+//         answer1.classList.add('disabled');
+//     }
+// }
+
 function selectAnswer(selectedAnswer, index) {
     console.log(selectedAnswer);
-    if (selectedAnswer === questions[index]?.correctAnswer) {
+    if (selectedAnswer === questions[index].correctAnswer) {
         console.log('Correct');
         score += 5;
     } else {
@@ -106,6 +124,17 @@ function goToNextQuestion(index) {
     if (index <= questions.length) {
         nextButton.classList.remove('hide');
         nextButton.addEventListener('click', (event) => {
+            if ((answer1 || answer2 || answer3).classList.contains('disabled')) {
+
+                answer1.classList.remove('disabled');
+                answer2.classList.remove('disabled');
+                answer3.classList.remove('disabled');
+            }
+            if ((answer1.classList.contains('chosenAnswer')) || (answer2.classList.contains('chosenAnswer')) || (answer3.classList.contains('chosenAnswer'))) {
+                answer1.classList.remove('chosenAnswer');
+                answer2.classList.remove('chosenAnswer');
+                answer3.classList.remove('chosenAnswer');
+            }
             event.preventDefault();
             if (index < questions.length) {
                 giveFirstQuestion(index);
@@ -125,6 +154,7 @@ function gameOver() {
     finalScore.innerText = score;
     storeData();
     time.classList.add("hide");
+    container.classList.add('hide');
 }
 
 function storeData() {
@@ -149,7 +179,7 @@ function displayHighScore() {
         // let arrayOfInfo = Object.entries(info[i]) //trying to list the object entries in an array
         // let sortedScores = arrayOfInfo.sort((a, b) => b[1] - a[1])   //to then sort them
         // console.log(sortedScores)
-        listItem.textContent = info[i].initials + ' ' + info[i].score; /* and then would need to change info to sortedScores here?*/
+        listItem.textContent = info[i].initials + ' ' + info[i].score; /* and then would need to change info to sortedScores here*/
         highScore.appendChild(listItem);
     }
 }
