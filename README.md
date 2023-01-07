@@ -8,9 +8,13 @@
 
 This quick coding quiz is timed and will deduct points from the player if they answer a question incorrectly. At the end, the player's initials and score will display. 
 
+Interval timer inspired by UT Bootcamp "Set Interval" activity. 
+
 ##Screenshot
 
 ![Screenshot of page](add image file path here)
+
+##Known Bugs
 
 ##License 
 MIT License

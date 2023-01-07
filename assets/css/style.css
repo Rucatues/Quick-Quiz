@@ -68,3 +68,9 @@ input{
 .submitBtn{
     margin-top: 10px; 
 }
+
+.time-left{
+    position: fixed;
+    top: 20px; 
+    font-size: 20px; 
+}

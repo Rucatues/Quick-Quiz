@@ -12,6 +12,9 @@ const submitBtn = document.querySelector(".submitBtn"); //button that submits yo
 const initialsBox = document.getElementById('initials-box') //box where you put your initials 
 const finalScore = document.getElementById('final-score') //targets the final score
 const highScore = document.querySelector('.high-score')
+const recentScores = document.getElementById('recent-scores');
+const time = document.querySelector('.time-left');
+var secondsLeft = 20;
 let info = []
 let score = 0;
 
@@ -42,12 +45,28 @@ const questions = [
 
 startButton.addEventListener('click', startGame);
 
+function setTime() {
+    // Sets interval in variable
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        time.textContent = secondsLeft + " seconds until end of game";
+
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            gameOver();
+            time.classList.add("hide");
+        }
+
+    }, 1000);
+}
 function startGame() {
     console.log('Game started.');
     startButton.classList.add('hide');
     answerButtons.classList.remove('hide');
     giveFirstQuestion(0);
+    setTime();
 }
+
 
 function giveFirstQuestion(globalIndex) {
     text.innerText = questions[globalIndex]?.questionText;
@@ -105,6 +124,7 @@ function gameOver() {
     console.log(score);
     finalScore.innerText = score;
     storeData();
+    time.classList.add("hide");
 }
 
 function storeData() {
@@ -122,6 +142,7 @@ function storeData() {
 }
 
 function displayHighScore() {
+    recentScores.classList.remove('hide');
     for (let i = 0; i < info.length; i++) {
         console.log(info[i]);
         var listItem = document.createElement('li');
