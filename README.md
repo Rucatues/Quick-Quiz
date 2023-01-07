@@ -14,9 +14,5 @@ Interval timer inspired by UT Bootcamp "Set Interval" activity.
 
 ![Screenshot of page](./assets/images/screencapture-file-Users-kellymclain-bootcamp-Homework-QuickQuiz-Quick-Quiz-index-html-2023-01-07-10_38_47.png)
 
-## Known bugs
-
-If user clicks on other answers after selecting their answer, total score is affected. Plans to fix this in the future!
-
 ## License 
 MIT License
