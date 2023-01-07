@@ -72,10 +72,10 @@ function giveFirstQuestion(globalIndex) {
 function selectAnswer(selectedAnswer, index) {
     console.log(selectedAnswer);
     if (selectedAnswer === questions[index]?.correctAnswer) {
-        console.log('Correct')
+        console.log('Correct');
         score += 5;
     } else {
-        console.log('Wrong')
+        console.log('Wrong');
     }
 
     console.log(index);
@@ -103,6 +103,7 @@ function gameOver() {
     nextButton.classList.add('hide');
     endContainer.classList.remove('hide');
     console.log(score);
+    finalScore.innerText = score;
     storeData();
 }
 
