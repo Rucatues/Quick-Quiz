@@ -72,5 +72,7 @@ input{
 .time-left{
     position: fixed;
     top: 20px; 
+    padding: 30px 0; 
+    text-align: center; 
     font-size: 20px; 
 }
