@@ -1,7 +1,5 @@
 # Quick-Quiz
 
-## Quick Links
-
 [Here](https://rucatues.github.io/Quick-Quiz/) is the link to the coding quiz.
 
 ## Description
